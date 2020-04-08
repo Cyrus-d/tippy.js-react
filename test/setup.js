@@ -1,11 +1,8 @@
-global.window.document.createRange = function createRange() {
-  return {
-    setEnd: () => {},
-    setStart: () => {},
-    getBoundingClientRect: () => {
-      return {right: 0};
-    },
-    getClientRects: () => [],
-    commonAncestorContainer: document.createElement('div'),
-  };
+global.console = {
+  log: console.log,
 };
+
+beforeEach(() => {
+  global.console.warn = jest.fn();
+  global.console.error = jest.fn();
+});
